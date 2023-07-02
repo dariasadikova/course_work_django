@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% block title %}<title>Theater</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Добавление дополнительного статического CSS файла -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+  
+  <header class="header">
+    <nav class="header__navigation navigation">
+      <ul class="navigation__menu">
+        <li class="navigation__item"><a href="{% url 'index' %}"><img src="{% static 'img/ballerina.png' %}" class="navigation__logo"></a></li>
+        <li class="navigation__item"><a href="{% url 'index' %}" class="navigation__link">Главная</a></li>
+        <li class="navigation__item"><a href="{% url 'plays' %}" class="navigation__link">Спектакли</a></li>
+        <li class="navigation__item"><a href="{% url 'actors' %}" class="navigation__link">Актеры</a></li>
+        {% if user.is_superuser %}
+          <li class="navigation__item"><a href="{% url 'add-play-admin' %}" class="navigation__link">Добавить спектакль</a></a></li>
+        {% endif %}
+      </ul>
+      
+      
+      
+      <div class="navigation__login">
+        {% if user.is_authenticated %}
+          <li class="navigation__user">{{ user.get_username }}</li>
+          <li class="navigation__log"><a class="navigation__link" href="{% url 'logout'%}?next={{request.path}}">Выйти</a></li>
+        {% else %}
+          <li class="navigation__log"><a class="navigation__link" href="{% url 'login'%}?next={{request.path}}">Войти</a></li>
+        {% endif %}
+      </div>
+
+    </nav>
+  </header>
+  
+  {% block content %}{% endblock %}
+
+
+  {% block pagination %}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Предыдущая страница</a>
+                {% endif %}
+                <span class="page-current">
+                    Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Следующая страница</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+  {% endblock %}
+</body>
+</html>

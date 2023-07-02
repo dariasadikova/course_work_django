@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+  {% block content %}
+  <div class="main">
+    <h1>Театр</h1>
+
+    <p>Добро пожаловать на сайт нашего театра!</p>
+
+    <p>В нашем театре вы сможете увидеть:</p>
+    <ul class="main__list">
+      <li><strong>Спектаклей:</strong> {{ num_plays }}</li>
+      <li><strong>Актеров:</strong> {{ num_actors }}</li>
+    </ul>
+  </div>
+  {% endblock %}
+
+</body>

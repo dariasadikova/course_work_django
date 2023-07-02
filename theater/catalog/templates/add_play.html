@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <form action="{% url 'add-play-admin' %}" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form }}
+        </table>
+        <button type="submit">Добавить</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="plays">
+  
+<h1>Актеры</h1>
+
+{% if actor_list %}
+  <ul>
+
+  {% for actor in actor_list %}
+    <li>
+      <p>
+      {{ actor }} 
+      </p>
+      <p>{{actor.date_of_birth}}</p>
+    </li>
+  {% endfor %}
+
+ </ul>
+{% else %}
+  <p>В театре нет актеров :(.</p>
+{% endif %}
+        
+        
+        
+{% endblock %}

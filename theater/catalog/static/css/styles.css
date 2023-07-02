@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #006400;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation__menu {
+  margin: 0;
+  padding: 10px;
+  gap: 40px;
+  list-style-type: none;
+  display: flex;
+}
+
+.navigation__logo {
+  width: 130px;
+}
+
+.navigation__item {
+    display: flex;
+    align-items: center;
+}
+
+.navigation__link {
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.main {
+  padding: 30px;
+  font-size: 20px;
+}
+
+.main__list {
+  list-style-type: none;
+}
+
+.plays {
+  padding: 30px;
+  font-size: 20px;
+}
+
+.pagination {
+  padding-left: 30px;
+  font-size: 20px;
+}
+
+.plays__menu {
+  color: #000;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.plays__link {
+  color: #000;
+}
+
+.navigation__buttons_login {
+  background-color: transparent;
+  border: #fff solid 2px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.navigation__login {
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+  color: #fff;
+  margin-right: 20px;
+}
+
+.login_button {
+  background-color: #006400;
+  padding: 10px 20px 10px 20px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 30px;
+  align-text: center;
+}

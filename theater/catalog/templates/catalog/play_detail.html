@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="plays">
+  <h1>{{ play.name }}</h1>
+
+  <p><strong>Режиссёр:</strong> {{play.director}}</p>
+  <p><strong>Жанр:</strong> {{ play.display_genre }}</p>
+  <p><strong>Время постановки:</strong> {{ play.datetime }}</p>
+  
+</div>
+
+{% endblock %}

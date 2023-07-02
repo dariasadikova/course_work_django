@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="plays">
+    <h1>Список спектаклей</h1>
+
+    {% if play_list %}
+    <ul class="plays__menu">
+
+      {% for play in play_list %}
+      <li>
+        <a href="{{ play.get_absolute_url }}" class="plays__link">{{ play.name }}</a> ({{play.director}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Пока спектаклей не планируется :(</p>
+    {% endif %}
+    
+</div>
+{% endblock %} 
